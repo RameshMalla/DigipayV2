@@ -40,30 +40,49 @@ html, body {
     border-bottom-right-radius: 19px !important;
     border-top-right-radius: 19px !important;
 }
-.logincontainer , .passwordcontainer{
-  position: fixed;
+.newform .iconside:first-child {
+    border-bottom-left-radius: 0px !important;
+    border-top-left-radius: 0px !important;
 }
-.logincontainer{
-  right: 0%;
+.newform .iconside:last-child {
+    border-bottom-right-radius: 0px !important;
+    border-top-right-radius: 0px !important;
 }
-.passwordcontainer{
-  left: 100%;
+.logincontainer, .passwordcontainer, .newusercontainer {
+    position: fixed;
+}
+.logincontainer {
+    right: 0%;
+}
+.passwordcontainer {
+    left: 100%;
+}
+.newusercontainer {
+    left: 100%;
+}
+.newform {
+    margin-top: 6px;
+}
+.newform input {
+    border: 0px;
+    border-radius: 0 !important;
 }
 .nxtbtn, .newusrbtn {
-    /*border: 1px solid #0b9444;*/
+    /* border: 1px solid #0b9444; */
     background-color: #0B9446;
     position: relative;
     top: 5px;
     border-radius: 6px;
     font-weight: 900;
+    /* font-size: 15px; */
     /* display: block; */
     width: 100%;
     margin-top: 7px;
+    padding: 11px;
 }
 .nxtbtn:focus, .newusrbtn:focus {
     outline: 0;
 }
 .nxtbtn {
-    padding: 6px 25px;
 }
 .newusrbtn {}

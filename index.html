@@ -26,13 +26,13 @@
                 <button type="button" style="float:left;" class="btn btn-success nxtbtn forwardbtn">
                     <i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Next
                 </button>
-                <button type="button" style="float:right;" class="btn btn-success newusrbtn">
+                <button type="button" style="float:right;" class="btn btn-success newusrbtn adduserbtn">
                     <i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;New User ?
                 </button>
             </div>
             <div class="container passwordcontainer">
                 <div class="input-group input-group-lg loginform">
-                    <span class="input-group-addon iconside"><i class="fa fa-mobile" aria-hidden="true"></i></span>
+                    <span class="input-group-addon iconside"><i class="fa fa-lock" aria-hidden="true"></i></span>
                     <input type="password" placeholder="Password" class="form-control passwordinput" aria-label="Amount (to the nearest dollar)">
                     <span class="input-group-addon iconside indicator">
                     <i class="fa fa-spinner fa-pulse fa-fw"></i>
@@ -41,8 +41,29 @@
                 <button type="button" class="btn btn-success newusrbtn">
                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Shop
                 </button>
-                <button type="button" style="float:right;" class="btn btn-success newusrbtn">
-                    <i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Back
+                <button type="button" style="float:right;" class="btn btn-success newusrbtn backusrbtn">
+                    <i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Back
+                </button>
+            </div>
+            <div class="container newusercontainer">
+                <div class="input-group input-group-lg loginform newform">
+                    <span class="input-group-addon iconside"><i style="padding-left:10px;" class="fa fa-mobile" aria-hidden="true"></i></span>
+                    <input type="number" placeholder="Mobile number" class="form-control passwordinput" aria-label="Amount (to the nearest dollar)">
+                </div>
+                <div class="input-group input-group-lg loginform newform">
+                    <span class="input-group-addon iconside"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                    <input type="email" placeholder="Email-Id" class="form-control passwordinput" aria-label="Amount (to the nearest dollar)">
+                </div>
+                <div class="input-group input-group-lg loginform newform">
+                    <span class="input-group-addon iconside"><i style="padding-left:6px;" class="fa fa-lock" aria-hidden="true"></i></span>
+                    <input type="password" placeholder="Password" class="form-control passwordinput" aria-label="Amount (to the nearest dollar)">
+
+                </div>
+                <button type="button" class="btn btn-success newusrbtn">
+                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Shop
+                </button>
+                <button type="button" style="float:right;" class="btn btn-success newusrbtn newusrback">
+                    <i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Back
                 </button>
             </div>
         </div>
@@ -69,6 +90,38 @@
                 })
 
             });
+
+            $('.adduserbtn').click(function() {
+                $('.logincontainer').animate({
+                    right: '100%'
+                }, "1000", "easeOutBack", function() {
+                    $('.newusercontainer').animate({
+                        left: '0%'
+                    }, "1000", "easeOutBack");
+                })
+
+            });
+
+            $('.backusrbtn').click(function() {
+                $('.passwordcontainer').animate({
+                    left: '100%'
+                }, "1000", "easeOutBack", function() {
+                    $('.logincontainer').animate({
+                        right: '0%'
+                    }, "1000", "easeOutBack");
+                })
+
+            });
+
+            $('.newusrback').click(function(){
+              $('.newusercontainer').animate({
+                  left: '100%'
+              }, "1000", "easeOutBack", function() {
+                  $('.logincontainer').animate({
+                      right: '0%'
+                  }, "1000", "easeOutBack");
+              })
+            })
         })
     </script>
 
