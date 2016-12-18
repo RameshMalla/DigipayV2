@@ -7,13 +7,14 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Molle:400i" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/custom.css">
     <title>Digipay</title>
 </head>
 
 <body>
     <div class="parentcontainer" ng-app="digipay" ng-controller="maincontroller">
-        <div class="starterpage">
+        <div class="starterpage" style="display:none;">
             <img class="animated bounceIn" src="img/digipay.png" alt="Digipay" style="width:250px;" />
             <div class="container logincontainer">
                 <div class="input-group input-group-lg loginform">
@@ -67,6 +68,50 @@
                 </button>
             </div>
         </div>
+        <div class="main-navbar">
+            <nav class="navbar navbar-inverse navbar-fixed-top">
+                <div class="container-fluid">
+                    <!-- <div class="navbar-header">
+                      <i class="glyphicon glyphicon-search"></i>
+                        <a style="font-family: 'Molle', cursive;font-size:35px;" class="navbar-brand" href="#">Digipay</a>
+                    </div> -->
+                    <span class="fa fa-bars burgerbtn navmenuicons" aria-hidden="true"></span>
+                    <span class="titleheader">Digipay</span>
+                    <i class="fa fa-shopping-bag cartbtn navmenuicons" aria-hidden="true"><span class="badge cartnumberspan">5</span></i>
+                </div>
+            </nav>
+        </div>
+        <div class="container-fluid main-container-fluid">
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingTwo">
+                        <!-- <h4 class="panel-title collapsed" role="button" data-toggle="collapse" data-parent="#accordion" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Collapsible Group Item #2
+                          </a>
+                        </h4> -->
+                        <div class="container-fluid" style="padding:0px;">
+                          <div class="col-xs-4" style="padding:0px;">
+                            <img src="img/onplus3.jpg" class="img-thumbnail img-responsive" alt="" />
+                          </div>
+                          <div class="col-xs-8">
+                            <p>Name</p>
+                            <p>Prodct price and offer</p>
+                            <p>Rating</p>
+                          </div>
+                        </div>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                        <div class="panel-body">
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird
+                            on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft
+                            beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
     <!-- Include the jQuery library -->
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
@@ -113,14 +158,14 @@
 
             });
 
-            $('.newusrback').click(function(){
-              $('.newusercontainer').animate({
-                  left: '100%'
-              }, "1000", "easeOutBack", function() {
-                  $('.logincontainer').animate({
-                      right: '0%'
-                  }, "1000", "easeOutBack");
-              })
+            $('.newusrback').click(function() {
+                $('.newusercontainer').animate({
+                    left: '100%'
+                }, "1000", "easeOutBack", function() {
+                    $('.logincontainer').animate({
+                        right: '0%'
+                    }, "1000", "easeOutBack");
+                })
             })
         })
     </script>

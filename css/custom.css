@@ -83,6 +83,37 @@ html, body {
 .nxtbtn:focus, .newusrbtn:focus {
     outline: 0;
 }
-.nxtbtn {
-}
+.nxtbtn {}
 .newusrbtn {}
+.titleheader {
+    font-family: 'Molle', cursive;
+    font-size: 35px;
+    color: #0B9446;
+}
+.burgerbtn {
+    padding-right: 14px;
+}
+.navmenuicons {
+    font-size: 27px;
+    color: #7b7b7b;
+}
+.cartbtn {
+    float: right;
+    position: relative;
+    top: 11px;
+}
+.cartnumberspan {
+    position: absolute;
+    top: 8px;
+    text-align: center;
+    background-color: transparent;
+    left: 3px;
+}
+.main-container-fluid{
+  margin-top:52px;
+  padding: 0px;
+}
+.main-container-fluid .panel{
+  border-radius: 0px;
+  margin-bottom: 0px;
+}
