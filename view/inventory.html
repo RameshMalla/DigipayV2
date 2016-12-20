@@ -1,56 +1,96 @@
-<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" ng-repeat="shop in shoppingList|filter:categorymodel" style="margin-bottom:0px;">
-    <div class="panel panel-default">
-        <div class="panel-heading collapsed" style="background-color:white;" role="tab" id="headingTwo{{shop.itemId}}" data-toggle="collapse" data-parent="#accordion" data-target="#{{shop.itemId}}" aria-expanded="false">
-            <!-- <h4 class="panel-title collapsed" role="button" data-toggle="collapse" data-parent="#accordion" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-              <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                Collapsible Group Item #2
-              </a>
-            </h4> -->
-            <div class="container-fluid" style="padding:0px;">
-                <div class="col-xs-4" style="padding:0px;">
-                    <!-- <img src="img/onplus3.jpg" class="img-thumbnail img-responsive" alt="" /> -->
-                    <img ng-src="{{getImage(shop.itemImage)}}" alt="..." class="img-thumbnail img-responsive" />
-                </div>
-                <div class="col-xs-8">
-                    <p>{{shop.itemName}}</p>
-                    <p>
-                        <strong>{{shop.discountPrice!=null?"Rs."+shop.discountPrice:"Rs."+shop.itemPrice}}</strong>&nbsp;&nbsp;
-                        <strong style="font-size:11px;color:#a2a2a2;">
-              <s>{{shop.discountPrice!=null?"Rs."+shop.itemPrice:""}}</s>
-            </strong>
-                    </p>
-                    <!-- <p>{{shop.itemRating}}</p> -->
-                    <p>
-                        <input-stars max="5" ng-attr-readonly="true" ng-model="shop.itemRating"></input-stars>
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div id="{{shop.itemId}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo{{shop.itemId}}">
-            <div class="panel-body" style="padding:15px 0px;">
-                <div class="col-xs-12" style="text-align:center;">
-                    <img style="border:0px;" ng-src="{{getImage(shop.itemImage)}}" alt="..." class="img-thumbnail img-responsive" />
-                </div>
-                <div class="col-xs-12" style="padding:5px 0px;background-color:beige;border-top: 2px solid #dddddd;border-bottom: 2px solid #dddddd;">
-                    <div class="col-xs-6">
-                        <span ng-if="shop.itemQuantity!='0'">
-              <span class="badge instockbadge">{{shop.itemQuantity}}</span>&nbsp;&nbsp;In Stock
-                        </span>
-                        <span ng-if="shop.itemQuantity=='0'">
-              <span class="badge">Not In Stock</span>
-                        </span>
-                    </div>
-                    <div class="col-xs-6" style="padding:0px;">
-                        <strong>Aisle 7 - Bay 13</strong>
-                        <p style="color:gray;">
-                            Tap to view sore layout
-                        </p>
-                    </div>
-                </div>
-                <div class="col-xs-12" style="padding: 10px 0px;text-align:center;border-bottom: 1px solid rgba(0, 0, 0, 0.52);">
-                    <strong><i>{{shop.itemName}}</i></strong>
-                </div>
-            </div>
-        </div>
+<div class="searchbox">
+  <div class="input-group">
+    <div class="input-group-btn">
+      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{categorymodel}}
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu categorydropmenu">
+        <li>
+          <label>
+            <input type="radio" ng-model="categorymodel" value="Computers" name="optradio">Computers
+          </label><hr>
+        </li>
+        <li>
+          <label>
+            <input type="radio" ng-model="categorymodel" value="Audio" name="optradio">Audio
+          </label><hr>
+        </li>
+        <li>
+          <label>
+            <input type="radio" ng-model="categorymodel" value="Wearable Tech" name="optradio">Wearable Tech
+          </label><hr>
+        </li>
+        <li>
+          <label>
+            <input type="radio" ng-model="categorymodel" value="Cell Phones" name="optradio">Cell Phones
+          </label><hr>
+        </li>
+      </ul>
     </div>
+    <!-- /btn-group -->
+    <input type="text" ng-model="searchproductmodel" class="form-control" style="border-right:0px;" placeholder="Search Product" aria-describedby="basic-addon2">
+    <!-- <span class="input-group-addon" style="background-color:white;" id="basic-addon2">
+      <i class="fa fa-search" aria-hidden="true"></i>
+    </span> -->
+  </div>
+</div>
+<div class="mainpanel">
+  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" ng-repeat="shop in shoppingList|filter:categorymodel|filter:searchproductmodel" style="margin-bottom:0px;">
+    <div class="panel panel-default">
+      <div class="panel-heading collapsed" role="tab" id="headingTwo{{shop.itemId}}" data-toggle="collapse" data-parent="#accordion" data-target="#{{shop.itemId}}" aria-expanded="false">
+        <!-- <h4 class="panel-title collapsed" role="button" data-toggle="collapse" data-parent="#accordion" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  Collapsible Group Item #2
+                </a>
+              </h4> -->
+        <div class="container-fluid" style="padding:0px;">
+          <div class="col-xs-4" style="padding:0px;">
+            <!-- <img src="img/onplus3.jpg" class="img-thumbnail img-responsive" alt="" /> -->
+            <img ng-src="{{getImage(shop.itemImage)}}" alt="..." class="img-thumbnail img-responsive"/>
+          </div>
+          <div class="col-xs-8">
+            <p>{{shop.itemName}}</p>
+            <p>
+              <strong>{{shop.discountPrice!=null?"Rs."+shop.discountPrice:"Rs."+shop.itemPrice}}</strong>&nbsp;&nbsp;
+              <strong style="font-size:11px;color:#a2a2a2;">
+                <s>{{shop.discountPrice!=null?"Rs."+shop.itemPrice:""}}</s>
+              </strong>
+            </p>
+            <!-- <p>{{shop.itemRating}}</p> -->
+            <p>
+              <input-stars max="5" ng-attr-readonly="true" ng-model="shop.itemRating"></input-stars>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div id="{{shop.itemId}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo{{shop.itemId}}">
+        <div class="panel-body" style="padding:15px 0px;padding-bottom:0px;">
+          <div class="col-xs-12" style="text-align:center;">
+            <img style="border:0px;" ng-src="{{getImage(shop.itemImage)}}" alt="..." class="img-thumbnail img-responsive"/>
+          </div>
+          <div class="col-xs-12" style="padding:5px 0px;background-color:beige;border-top: 2px solid #dddddd;border-bottom: 2px solid #dddddd;">
+            <div class="col-xs-6">
+              <span ng-if="shop.itemQuantity!='0'">
+                <span class="badge instockbadge">{{shop.itemQuantity}}</span>&nbsp;&nbsp;In Stock
+              </span>
+              <span ng-if="shop.itemQuantity=='0'">
+                <span class="badge">Not In Stock</span>
+              </span>
+            </div>
+            <div class="col-xs-6" style="padding:0px;">
+              <strong>Aisle 7 - Bay 13</strong>
+              <p style="color:gray;">
+                Tap to view sore layout
+              </p>
+            </div>
+          </div>
+          <div class="col-xs-12" style="padding: 10px 0px;text-align:center;border-bottom: 1px solid rgba(0, 0, 0, 0.52);">
+            <strong>
+              <i>{{shop.itemName}}</i>
+            </strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
