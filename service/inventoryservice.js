@@ -2,6 +2,7 @@ digipayModule.service("inventoryService", function($http) {
   var shoppingList = [];
   var totalprice = 0;
   var totalCartItems = 0;
+  var category=null;
   //var urlprefix = "http://192.168.43.234:4000";
   //var urlprefix = "http://digipay-gurunathanm.c9users.io"
   //var urlprefix = "http://digipay.mybluemix.net";
@@ -71,6 +72,14 @@ digipayModule.service("inventoryService", function($http) {
   }
   this.getTotalCartItems = function() {
     return totalCartItems;
+  }
+
+  this.setSlectedCategory = function(categoryselected){
+    category = categoryselected;
+  }
+
+  this.getCategory = function(){
+    return category;
   }
 
   this.updateTotalPrice = function(modifiedPrice, isReduced) {
