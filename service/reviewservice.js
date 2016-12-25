@@ -2,8 +2,8 @@ digipayModule.service("reviewservice", function($http, transactionService) {
 
   //var urlprefix = "http://192.168.43.234:4000";
   //var urlprefix = "http://digipay-gurunathanm.c9users.io"
-  var urlprefix = "http://digipay.mybluemix.net";
-
+  //var urlprefix = "http://digipay.mybluemix.net";
+  var urlprefix = "http://localhost:3000";
 
   this.getAllthereviews = function(itemId, callbackFunction) {
     $http.get(urlprefix + "/reviews/getreviewsbyid/" + itemId).then(function(response) {

@@ -2,7 +2,8 @@ digipayModule.service("offerservice", function($http) {
 
   //  var urlprefix = "http://192.168.43.234:4000";
   //var urlprefix = "http://digipay-gurunathanm.c9users.io"
-  var urlprefix = "http://digipay.mybluemix.net";
+  //var urlprefix = "http://digipay.mybluemix.net";
+  var urlprefix = "http://localhost:3000";
   this.applyOffers = function(storeId, itemId, callbackFunction) {
 
     $http.get(urlprefix + "/offers/getOffers/" + storeId + "/" + itemId)

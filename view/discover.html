@@ -18,7 +18,7 @@
     <span class="discmodheader" style="color:white;position:relative;top:20%;left:3%;">My Purchase</span>
 
     <!-- Extra small button group -->
-    <div class="btn-group customdrop">
+    <!-- <div class="btn-group customdrop">
       <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
         <span class="glyphicon glyphicon-menu-hamburger"></span>
@@ -36,10 +36,10 @@
           <a ng-click="toggleDiscDiv('qpay','Q-Pay')">Manage Q-Pay</a>
         </li>
       </ul>
-    </div>
+    </div> -->
   </div>
   <div class="discovermaincontent">
-    <div class="transactions subcontents">
+    <div class="transactions subcontents" style="display:none;">
       <div class="panel-group transaction-group" id="accordion" role="tablist" aria-multiselectable="true">
         <div class="panel panel-default" ng-repeat="transaction in transactionDetails | orderBy:'-transactionDate'">
           <div class="panel-heading" style="padding:5px;" role="tab" id="headingOne">

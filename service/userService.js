@@ -4,8 +4,9 @@ digipayModule.service("userservice", function($http) {
   //var urlprefix = "http://192.168.43.234:4000";
   //var urlprefix = "http://digipay-gurunathanm.c9users.io"
   //var urlprefix = "https://digipaydev.au-syd.mybluemix.net";
-  var urlprefix = "http://digipay.mybluemix.net";
+  //var urlprefix = "http://digipay.mybluemix.net";
   //https://digipaydev.au-syd.mybluemix.net/users/finduser/9940366400
+  var urlprefix = "http://localhost:3000";
   this.getUserInfo = function(phoneNumber, callbackFunction) {
     $http.get(urlprefix + "/users/finduser/" + phoneNumber)
       .then(function(response) {

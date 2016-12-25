@@ -33,11 +33,11 @@
   </div>
   <div class="offers">
     <div class="combinedoffer" style="z-index:4;background-color:white;display:none;">
-      <div class="col-xs-12 offercarousel" style="padding-top:20px;padding-left:0px;padding-right:0px;">
+      <!-- <div class="col-xs-12 offercarousel" style="padding-top:20px;padding-left:0px;padding-right:0px;">
         <div><img src="img/headphone.jpg" alt="Headphone" class="img-responsive"/></div>
         <div><img src="img/sports.jpg" alt="Sports" class="img-responsive"/></div>
         <div><img src="img/elecslide.jpg" alt="Electronics" class="img-responsive"/></div>
-      </div>
+      </div> -->
       <div class="row offerrow">
         <div class="col-xs-12">
           <img ng-click="imageClick()" src="img/headspeaker.jpg" alt=""/>
@@ -55,7 +55,7 @@
       </div>
     </div>
     <div class="offerGroup">
-      <div class="offertools" style="border-top:2px solid black;height:42px;">
+      <div class="offertools" style="border-top:1px solid black;height:42px;">
         <div class="col-xs-6 sortbtn" data-toggle="modal" data-target="#sortModal" style="padding:10px;text-align:center;border-right:2px solid #201e23;">
           <span class="glyphicon glyphicon-sort"></span>&nbsp;&nbsp;Sort
         </div>
@@ -150,11 +150,11 @@
               <div class="col-xs-12" style="padding:0px;">
                 <div class="radio sortradio">
                   <label>
-                    <input type="radio" ng-model="pricesort" value="discountPrice" name="optradio">Price Low to High</label>
+                    <input type="radio" ng-model="pricesort" value="itemPrice" name="optradio">Price Low to High</label>
                 </div>
                 <div class="radio sortradio" style="margin-bottom:0px;">
                   <label>
-                    <input type="radio" ng-model="pricesort" value="-discountPrice" name="optradio">Price High to Low</label>
+                    <input type="radio" ng-model="pricesort" value="-itemPrice" name="optradio">Price High to Low</label>
                 </div>
               </div>
             </div>
