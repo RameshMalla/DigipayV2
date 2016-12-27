@@ -1,96 +1,228 @@
 <div class="searchbox">
-  <div class="input-group">
-    <div class="input-group-btn">
-      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{categorymodel}}
-        <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu categorydropmenu">
-        <li>
-          <label>
-            <input type="radio" ng-model="categorymodel" value="Computers" name="optradio">Computers
-          </label><hr>
-        </li>
-        <li>
-          <label>
-            <input type="radio" ng-model="categorymodel" value="Audio" name="optradio">Audio
-          </label><hr>
-        </li>
-        <li>
-          <label>
-            <input type="radio" ng-model="categorymodel" value="Wearable Tech" name="optradio">Wearable Tech
-          </label><hr>
-        </li>
-        <li>
-          <label>
-            <input type="radio" ng-model="categorymodel" value="Cell Phones" name="optradio">Cell Phones
-          </label><hr>
-        </li>
-      </ul>
-    </div>
-    <!-- /btn-group -->
-    <input type="text" ng-model="searchproductmodel" class="form-control" style="border-right:0px;" placeholder="Search Product" aria-describedby="basic-addon2">
-    <!-- <span class="input-group-addon" style="background-color:white;" id="basic-addon2">
+    <div class="input-group">
+        <div class="input-group-btn">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{categorymodel}}
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu categorydropmenu">
+                <li>
+                    <label>
+                        <input type="radio" ng-model="categorymodel" value="Computers" name="optradio">Computers
+                    </label>
+                    <hr>
+                </li>
+                <li>
+                    <label>
+                        <input type="radio" ng-model="categorymodel" value="Audio" name="optradio">Audio
+                    </label>
+                    <hr>
+                </li>
+                <li>
+                    <label>
+                        <input type="radio" ng-model="categorymodel" value="Wearable Tech" name="optradio">Wearable Tech
+                    </label>
+                    <hr>
+                </li>
+                <li>
+                    <label>
+                        <input type="radio" ng-model="categorymodel" value="Cell Phones" name="optradio">Cell Phones
+                    </label>
+                    <hr>
+                </li>
+            </ul>
+        </div>
+        <!-- /btn-group -->
+        <input type="text" ng-model="searchproductmodel" class="form-control" style="border-right:0px;" placeholder="Search Product" aria-describedby="basic-addon2">
+        <!-- <span class="input-group-addon" style="background-color:white;" id="basic-addon2">
       <i class="fa fa-search" aria-hidden="true"></i>
     </span> -->
-  </div>
+    </div>
 </div>
 <div class="mainpanel">
-  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" ng-repeat="shop in shoppingList|filter:categorymodel|filter:searchproductmodel" style="margin-bottom:0px;">
-    <div class="panel panel-default">
-      <div class="panel-heading collapsed" role="tab" id="headingTwo{{shop.itemId}}" data-toggle="collapse" data-parent="#accordion" data-target="#{{shop.itemId}}" aria-expanded="false">
-        <!-- <h4 class="panel-title collapsed" role="button" data-toggle="collapse" data-parent="#accordion" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" ng-repeat="shop in shoppingList|filter:categorymodel|filter:searchproductmodel" style="margin-bottom:0px;">
+        <div class="panel panel-default">
+            <div class="panel-heading collapsed" role="tab" id="headingTwo{{shop.itemId}}" data-toggle="collapse" data-parent="#accordion" data-target="#{{shop.itemId}}" aria-expanded="false">
+                <!-- <h4 class="panel-title collapsed" role="button" data-toggle="collapse" data-parent="#accordion" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                   Collapsible Group Item #2
                 </a>
               </h4> -->
-        <div class="container-fluid" style="padding:0px;">
-          <div class="col-xs-4" style="padding:0px;">
-            <!-- <img src="img/onplus3.jpg" class="img-thumbnail img-responsive" alt="" /> -->
-            <img ng-src="{{getImage(shop.itemImage)}}" alt="..." class="img-thumbnail img-responsive"/>
-          </div>
-          <div class="col-xs-8">
-            <p>{{shop.itemName}}</p>
-            <p>
-              <strong>{{shop.discountPrice!=null?"Rs."+shop.discountPrice:"Rs."+shop.itemPrice}}</strong>&nbsp;&nbsp;
-              <strong style="font-size:11px;color:#a2a2a2;">
+                <div class="container-fluid" style="padding:0px;">
+                    <div class="col-xs-4" style="padding:0px;">
+                        <!-- <img src="img/onplus3.jpg" class="img-thumbnail img-responsive" alt="" /> -->
+                        <img ng-src="{{getImage(shop.itemImage)}}" alt="..." class="img-thumbnail img-responsive" />
+                    </div>
+                    <div class="col-xs-8">
+                        <p>{{shop.itemName}}</p>
+                        <p>
+                            <strong>{{shop.discountPrice!=null?"Rs."+shop.discountPrice:"Rs."+shop.itemPrice}}</strong>&nbsp;&nbsp;
+                            <strong style="font-size:11px;color:#a2a2a2;">
                 <s>{{shop.discountPrice!=null?"Rs."+shop.itemPrice:""}}</s>
               </strong>
-            </p>
-            <!-- <p>{{shop.itemRating}}</p> -->
-            <p>
-              <input-stars max="5" ng-attr-readonly="true" ng-model="shop.itemRating"></input-stars>
-            </p>
-          </div>
-        </div>
-      </div>
-      <div id="{{shop.itemId}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo{{shop.itemId}}">
-        <div class="panel-body" style="padding:15px 0px;padding-bottom:0px;">
-          <div class="col-xs-12" style="text-align:center;">
-            <img style="border:0px;" ng-src="{{getImage(shop.itemImage)}}" alt="..." class="img-thumbnail img-responsive"/>
-          </div>
-          <div class="col-xs-12" style="padding:5px 0px;background-color:beige;border-top: 2px solid #dddddd;border-bottom: 2px solid #dddddd;">
-            <div class="col-xs-6">
-              <span ng-if="shop.itemQuantity!='0'">
+                        </p>
+                        <!-- <p>{{shop.itemRating}}</p> -->
+                        <p>
+                            <input-stars max="5" ng-attr-readonly="true" ng-model="shop.itemRating"></input-stars>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div id="{{shop.itemId}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo{{shop.itemId}}">
+                <div class="panel-body" style="padding:15px 0px;padding-bottom:0px;">
+                    <div class="col-xs-12" style="text-align:center;">
+                        <img style="border:0px;" ng-src="{{getImage(shop.itemImage)}}" alt="..." class="img-thumbnail img-responsive" />
+                    </div>
+                    <div class="col-xs-12" data-toggle="modal" data-target="#layoutmodal" style="padding:5px 0px;background-color:#f7f7f7;border-top: 2px solid #dddddd;border-bottom: 2px solid #dddddd;">
+                        <div class="col-xs-6">
+                            <span ng-if="shop.itemQuantity!='0'">
                 <span class="badge instockbadge">{{shop.itemQuantity}}</span>&nbsp;&nbsp;In Stock
-              </span>
-              <span ng-if="shop.itemQuantity=='0'">
+                            </span>
+                            <span ng-if="shop.itemQuantity=='0'">
                 <span class="badge">Not In Stock</span>
-              </span>
-            </div>
-            <div class="col-xs-6" style="padding:0px;">
-              <strong>Aisle 7 - Bay 13</strong>
-              <p style="color:gray;">
-                Tap to view sore layout
-              </p>
-            </div>
-          </div>
-          <div class="col-xs-12" style="padding: 10px 0px;text-align:center;border-bottom: 1px solid rgba(0, 0, 0, 0.52);">
-            <strong>
+                            </span>
+                        </div>
+                        <div class="col-xs-6" style="padding:0px;">
+                            <strong>Aisle 7 - Bay 13</strong>
+                            <p style="color:gray;">
+                                Tap to view sore layout
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-xs-12" style="padding: 10px 0px;text-align:center;border-bottom: 1px solid rgba(0, 0, 0, 0.52);">
+                        <strong>
               <i>{{shop.itemName}}</i>
             </strong>
-          </div>
+                        <br>
+                        <table ng-if="shop.itemCategory=='Computers'" class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <th>Brand</th>
+                                    <td>{{shop.itemspecs.Brand}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Colour</th>
+                                    <td>{{shop.itemspecs.Colour}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Screen Size</th>
+                                    <td>{{shop.itemspecs['Screen Size']}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Maximum Display Resolution</th>
+                                    <td>{{shop.itemspecs['Maximum Display Resolution']}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Item Weight</th>
+                                    <td>{{shop.itemspecs['Item Weight']}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Item model number</th>
+                                    <td>{{shop.itemspecs['Item model number']}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Processor Type</th>
+                                    <td>{{shop.itemspecs['Processor Type']}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Processor Speed</th>
+                                    <td>{{shop.itemspecs['Processor Speed']}}</td>
+                                </tr>
+                                <tr>
+                                    <th>RAM Size</th>
+                                    <td>{{shop.itemspecs['RAM Size']}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Hard Drive Size</th>
+                                    <td>{{shop.itemspecs['Hard Drive Size']}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Graphics Coprocessor</th>
+                                    <td>{{shop.itemspecs['Graphics Coprocessor']}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Operating System</th>
+                                    <td>{{shop.itemspecs['Operating System']}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- <table ng-if="shop.itemCategory=='Computers'" class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <th>John</th>
+                                    <td>Doe</td>
+                                </tr>
+                                <tr>
+                                    <th>Mary</th>
+                                    <td>Moe</td>
+                                </tr>
+                                <tr>
+                                    <th>July</th>
+                                    <td>Dooley</td>
+                                </tr>
+                            </tbody>
+                        </table> -->
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
+</div>
+
+<!-- Modal -->
+<div id="layoutmodal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body layoutbody">
+                <div class="svgcontainer container-fluid">
+                  <svg class="layoutsvg" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+                   <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+                   <g>
+                    <title>background</title>
+                    <rect fill="#fff" id="canvas_background" height="402" width="582" y="-1" x="-1"/>
+                    <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
+                     <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
+                    </g>
+                   </g>
+                   <g>
+                    <title>Layer 1</title>
+                    <rect stroke="#000" id="svg_1" height="60" width="213.999998" y="31" x="34.5" stroke-width="1.5" fill="#3474af"/>
+                    <rect stroke="#000" id="svg_2" height="64.000003" width="177.000002" y="29" x="378.5" stroke-opacity="null" stroke-width="1.5" fill="#3474af"/>
+                    <rect id="svg_3" height="99" width="131" y="194" x="425.5" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="#3474af"/>
+                    <rect id="svg_4" height="167" width="78" y="126" x="35.5" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="#3474af"/>
+                    <rect id="svg_5" height="89" width="181" y="174" x="186.5" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="#3474af"/>
+                    <text stroke="#000" transform="matrix(0.8606865546307317,0,0,1,-24.89550106900464,6) " xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_6" y="64" x="84.072053" stroke-opacity="null" stroke-width="0" fill="#ffffff">Aisle-3(Bay-1,Bay-2)</text>
+                    <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_10" y="224" x="198.5" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#ffffff">Aisle-1(Table)</text>
+                    <text stroke="#000" transform="rotate(-90.18035125732422 69.69718933105469,212.037841796875) matrix(0.6171011774450077,0,0,1.0303982496261594,34.09938821956887,27.74546484975387) " xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_11" y="187.236012" x="-53.827305" stroke-opacity="null" stroke-width="0" fill="#ffffff">Aisle-2(Bay-1,Bay-2)</text>
+                    <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_12" y="252" x="464.5" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#ffffff">POS</text>
+                    <text stroke="#000" transform="matrix(0.9408502578735352,0,0,1,33.51202577352524,0) " xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_13" y="69" x="378.305501" stroke-opacity="null" stroke-width="0" fill="#ffffff">Aisle-4(Hanger)</text>
+                    <rect id="svg_14" height="181" width="89" y="119" x="30.5" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="none"/>
+                    <rect id="svg_16" height="102" width="192" y="168" x="181.5" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="none"/>
+                    <rect id="svg_17" height="112" width="143" y="188" x="419.5" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="none"/>
+                    <rect id="svg_18" height="70" width="225" y="26" x="29.5" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="none"/>
+                    <path stroke="#000" style="vector-effect: non-scaling-stroke;" id="svg_22" d="m372,365" opacity="0.5" stroke-opacity="null" stroke-width="1.5" fill="none"/>
+                    <path id="svg_23" d="m336.5,453" opacity="0.5" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="none"/>
+                    <rect id="svg_19" height="73" width="186" y="25" x="374.5" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="none"/>
+                    <path id="svg_24" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="none"/>
+                    <path id="svg_25" d="m139.5,341l-128.5,0l0,-331l559,1l0,329l-149,0" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="none"/>
+                    <path id="svg_26" d="m220.5,340c0,0 131,0 131,0c0,0 -131,0 -131,0z" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="none"/>
+                    <path id="svg_27" d="m161.165002,337.389182l17.5,-34.915992l17.5,34.915992l-8.750001,0l0,35.084001l-17.499999,0l0,-35.084001l-8.750001,0z" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="#3d91e5"/>
+                    <path stroke="#000" transform="rotate(179.69436645507812 383.67306518554693,334.9611511230469) " id="svg_28" d="m366.670373,334.878325l17.002705,-34.422507l17.002705,34.422507l-8.501353,0l0,34.588142l-17.002704,0l0,-34.588142l-8.501353,0z" stroke-opacity="null" stroke-width="1.5" fill="#3d91e5"/>
+                    <text style="cursor: move;" stroke="#000" transform="matrix(0.9473828673362732,0,0,0.7777777910232544,7.234855741262436,86.44443929195404) " xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_29" y="390.428571" x="152.277552" stroke-opacity="null" stroke-width="0" fill="#000000">Enter</text>
+                    <text stroke="#000" transform="matrix(1,0,0,0.6666666865348816,0,129.99999225139618) " xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_30" y="386.5" x="364.5" stroke-opacity="null" stroke-width="0" fill="#000000">Exit</text>
+                   </g>
+                  </svg>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
 </div>

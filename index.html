@@ -143,12 +143,12 @@
           </li>
           <li class="list-group-item">
             <a href="#/offers">
-              <i class="fa fa-tags" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Offers/My-Offers</li>
+              <i class="fa fa-magic" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Offers/My-Offers</li>
           </a>
           <li class="list-group-item">
             <i class="fa fa-tag" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Recomendations</li>
-          <li class="list-group-item">
-            <i class="fa fa-magic" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;New-Arrivals</li>
+          <!-- <li class="list-group-item">
+            <i class="fa fa-magic" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;New-Arrivals</li> -->
         </ul>
       </div>
       <div class="container-fluid main-container-fluid">
@@ -428,6 +428,8 @@
           //var ratId="#"+id;
           $("#rateYo").rateYo({starWidth: "40px"});
         }
+
+        $('#svg_14').addClass('customanimate');
 
         $scope.getImage = function(imageUrl) {
           if (imageUrl.indexOf(".jpg") > 0) {
