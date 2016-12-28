@@ -72,7 +72,7 @@
                     <div class="col-xs-12" style="text-align:center;">
                         <img style="border:0px;" ng-src="{{getImage(shop.itemImage)}}" alt="..." class="img-thumbnail img-responsive" />
                     </div>
-                    <div class="col-xs-12" data-toggle="modal" data-target="#layoutmodal" style="padding:5px 0px;background-color:#f7f7f7;border-top: 2px solid #dddddd;border-bottom: 2px solid #dddddd;">
+                    <div ng-click="setLayoutgraph(shop.itemAisle)" class="col-xs-12" data-toggle="modal" data-target="#layoutmodal" style="padding:5px 0px;background-color:#f7f7f7;border-top: 2px solid #dddddd;border-bottom: 2px solid #dddddd;">
                         <div class="col-xs-6">
                             <span ng-if="shop.itemQuantity!='0'">
                 <span class="badge instockbadge">{{shop.itemQuantity}}</span>&nbsp;&nbsp;In Stock
@@ -82,7 +82,7 @@
                             </span>
                         </div>
                         <div class="col-xs-6" style="padding:0px;">
-                            <strong>Aisle 7 - Bay 13</strong>
+                            <strong>{{shop.itemAisle}} : {{shop.itemBay}}</strong>
                             <p style="color:gray;">
                                 Tap to view sore layout
                             </p>
@@ -145,7 +145,7 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <!-- <table ng-if="shop.itemCategory=='Computers'" class="table table-bordered">
+                        <table ng-if="shop.itemCategory=='Audio'" class="table table-bordered">
                             <tbody>
                                 <tr>
                                     <th>John</th>
@@ -160,7 +160,7 @@
                                     <td>Dooley</td>
                                 </tr>
                             </tbody>
-                        </table> -->
+                        </table>
                     </div>
                 </div>
             </div>
@@ -176,7 +176,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Modal Header</h4>
+                <h4 class="modal-title">Store Layout</h4>
             </div>
             <div class="modal-body layoutbody">
                 <div class="svgcontainer container-fluid">
@@ -191,23 +191,23 @@
                    </g>
                    <g>
                     <title>Layer 1</title>
-                    <rect stroke="#000" id="svg_1" height="60" width="213.999998" y="31" x="34.5" stroke-width="1.5" fill="#3474af"/>
-                    <rect stroke="#000" id="svg_2" height="64.000003" width="177.000002" y="29" x="378.5" stroke-opacity="null" stroke-width="1.5" fill="#3474af"/>
-                    <rect id="svg_3" height="99" width="131" y="194" x="425.5" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="#3474af"/>
-                    <rect id="svg_4" height="167" width="78" y="126" x="35.5" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="#3474af"/>
-                    <rect id="svg_5" height="89" width="181" y="174" x="186.5" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="#3474af"/>
+                    <rect stroke="#000" id="svg_1" class="Aisle-3" height="60" width="213.999998" y="31" x="34.5" stroke-width="1.5" fill="#3474af"/>
+                    <rect stroke="#000" id="svg_2" class="Aisle-4" height="64.000003" width="177.000002" y="29" x="378.5" stroke-opacity="null" stroke-width="1.5" fill="#3474af"/>
+                    <rect id="svg_3" class="POS" height="99" width="131" y="194" x="425.5" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="#3474af"/>
+                    <rect id="svg_4" class="Aisle-2" height="167" width="78" y="126" x="35.5" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="#3474af"/>
+                    <rect id="svg_5" class="Aisle-1" height="89" width="181" y="174" x="186.5" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="#3474af"/>
                     <text stroke="#000" transform="matrix(0.8606865546307317,0,0,1,-24.89550106900464,6) " xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_6" y="64" x="84.072053" stroke-opacity="null" stroke-width="0" fill="#ffffff">Aisle-3(Bay-1,Bay-2)</text>
                     <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_10" y="224" x="198.5" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#ffffff">Aisle-1(Table)</text>
                     <text stroke="#000" transform="rotate(-90.18035125732422 69.69718933105469,212.037841796875) matrix(0.6171011774450077,0,0,1.0303982496261594,34.09938821956887,27.74546484975387) " xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_11" y="187.236012" x="-53.827305" stroke-opacity="null" stroke-width="0" fill="#ffffff">Aisle-2(Bay-1,Bay-2)</text>
                     <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_12" y="252" x="464.5" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#ffffff">POS</text>
                     <text stroke="#000" transform="matrix(0.9408502578735352,0,0,1,33.51202577352524,0) " xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_13" y="69" x="378.305501" stroke-opacity="null" stroke-width="0" fill="#ffffff">Aisle-4(Hanger)</text>
-                    <rect id="svg_14" height="181" width="89" y="119" x="30.5" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="none"/>
-                    <rect id="svg_16" height="102" width="192" y="168" x="181.5" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="none"/>
+                    <rect id="svg_14" class="Aisle-2line" height="181" width="89" y="119" x="30.5" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="none"/>
+                    <rect id="svg_16" class="Aisle-1line" height="102" width="192" y="168" x="181.5" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="none"/>
                     <rect id="svg_17" height="112" width="143" y="188" x="419.5" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="none"/>
-                    <rect id="svg_18" height="70" width="225" y="26" x="29.5" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="none"/>
+                    <rect id="svg_18" class="Aisle-3line" height="70" width="225" y="26" x="29.5" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="none"/>
                     <path stroke="#000" style="vector-effect: non-scaling-stroke;" id="svg_22" d="m372,365" opacity="0.5" stroke-opacity="null" stroke-width="1.5" fill="none"/>
                     <path id="svg_23" d="m336.5,453" opacity="0.5" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="none"/>
-                    <rect id="svg_19" height="73" width="186" y="25" x="374.5" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="none"/>
+                    <rect id="svg_19" class="Aisle-4line" height="73" width="186" y="25" x="374.5" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="none"/>
                     <path id="svg_24" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="none"/>
                     <path id="svg_25" d="m139.5,341l-128.5,0l0,-331l559,1l0,329l-149,0" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="none"/>
                     <path id="svg_26" d="m220.5,340c0,0 131,0 131,0c0,0 -131,0 -131,0z" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="none"/>

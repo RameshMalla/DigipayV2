@@ -992,9 +992,13 @@ svg #svg_14 {
     stroke-dashoffset: 200;
     animation: 1s outlinerun alternate infinite;
 }
-svg #svg_4 {
+/*svg #svg_4 {
     fill: #3474af;
     animation: 0.5s blink alternate infinite;
+}*/
+.customblink{
+  fill: #3474af;
+  animation: 0.5s blink alternate infinite;
 }
 @keyframes blink {
     from {

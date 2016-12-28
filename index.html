@@ -429,7 +429,13 @@
           $("#rateYo").rateYo({starWidth: "40px"});
         }
 
-        $('#svg_14').addClass('customanimate');
+        $scope.setLayoutgraph=function(aisleInfo){
+            console.log('.'+aisleInfo+'line');
+            $('.'+aisleInfo).addClass('customblink');
+            $('.'+aisleInfo+'line').addClass('customanimate');
+        }
+
+        //$('.Ailse-4').addClass('customblink');
 
         $scope.getImage = function(imageUrl) {
           if (imageUrl.indexOf(".jpg") > 0) {
